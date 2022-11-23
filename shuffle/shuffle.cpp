@@ -9,12 +9,11 @@ int main() {
 
     int n;
     cin >> n;
-    cout << n;
     vector<int> shuffle(n);
     int t;
     for (int i = 0; i < n; i++) {
         cin >> t;
-        shuffle[t] = i;
+        shuffle[t - 1] = i;
     }
 
     vector<int> ids(n);
@@ -30,12 +29,12 @@ int main() {
     b = a;
 
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; j< 5; j++) {
-            b[shuffle[i]] = a[i];
+        for (int j = 0; j < 5; j++) {
+            b.at(shuffle[j]) = a[j];
         }
         a = b;
     }
     for (int i = 0; i < n; i++) {
-        cout << ids[b[i]];
+        cout << ids[b[i]] << endl;
     }
 }
