@@ -29,7 +29,7 @@ int main() {
     b = a;
 
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < n; j++) {
             b.at(shuffle[j]) = a[j];
         }
         a = b;
