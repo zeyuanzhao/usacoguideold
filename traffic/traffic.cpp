@@ -24,7 +24,7 @@ int main() {
         int x = xv[i], y = yv[i];
         if (m == "none") {a = max(a, x); b = min(b, y);}
         else if (m == "off") {a += x; b += y;}
-        else if (m == "on") {a -= y; b -= x;}
+        else if (m == "on") {a -= y; b -= x; a = max(a, 0);}
     }
     cout << a << " " << b << endl;
 
@@ -34,8 +34,9 @@ int main() {
         string m = mv[i];
         int x = xv[i], y = yv[i];
         if (m == "none") {a = max(a, x); b = min(b, y);}
-        else if (m == "off") {a -= y; b -= x;}
+        else if (m == "off") {a -= y; b -= x; a = max(a, 0);}
         else if (m == "on") {a += x; b += y;}
     }
     cout << a << " " << b << endl;
+    cout
 }
