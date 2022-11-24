@@ -38,5 +38,4 @@ int main() {
         else if (m == "on") {a += x; b += y;}
     }
     cout << a << " " << b << endl;
-    cout
 }
