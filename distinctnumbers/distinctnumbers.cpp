@@ -7,15 +7,19 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> a;
-    int c = 0;
+    vector<int> a(n);
     for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        if (!count(a.begin(), a.end(), x)) {
-            a.push_back(x);
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+    int temp = a[0];
+    int c = 1;
+    for (int i = 0; i < n; i++) {
+        if (a[i] != temp) {
             c++;
+            temp = a[i];
         }
     }
+
     cout << c;
 }
