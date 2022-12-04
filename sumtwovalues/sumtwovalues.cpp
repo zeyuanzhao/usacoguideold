@@ -15,10 +15,13 @@ int main() {
     bool found = false;
     for (const auto& x : m) {
         if (m.count(t - x.first)) {
+            if (x.first == t - x.first || x.second == -1) {
+                continue;
+            }
             found = true;
             cout << x.second << " " << m[t - x.first] << endl;
-            m.erase(x.first);
-            m.erase(t - x.first);
+            m[x.first] = -1;
+            m[t - x.first] = -1;
         }
     }
     if (!found) {
