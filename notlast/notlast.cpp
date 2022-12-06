@@ -8,6 +8,8 @@
 using namespace std;
 
 int main() {
+    freopen("notlast.in", "r", stdin);
+    freopen("notlast.out", "w", stdout);
     int n; cin >> n;
     map<string, int> raw;
 
