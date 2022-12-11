@@ -5,5 +5,5 @@
         "string": "cpp",
         "cstdio": "cpp"
     },
-    "discord.enabled": false
+    "discord.enabled": true
 }
