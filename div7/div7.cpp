@@ -2,6 +2,8 @@
 using namespace std;
 
 int main() {
+    freopen("div7.in", "r", stdin);
+    freopen("div7.out", "w", stdout);
     int n; cin >> n;
     vector<int> cows(n);
     for (int i = 0; i < n; i++) {
