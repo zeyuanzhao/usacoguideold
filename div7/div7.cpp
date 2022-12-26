@@ -5,19 +5,20 @@ int main() {
     freopen("div7.in", "r", stdin);
     freopen("div7.out", "w", stdout);
     int n; cin >> n;
-    vector<int> cows(n);
-    for (int i = 0; i < n; i++) {
-        cin >> cows[i];
+    vector<int> sums(n + 1, 0);
+    for (int i = 1; i <= n; i++) {
+        int t;
+        cin >> t;
+        sums[i] = (t + sums[i-1]) % 7;
     }
-    vector<long long> sums(n+1, 0);
-    partial_sum(cows.begin(), cows.end(), sums.begin() + 1);
     int ans = 0;
-    for (int i = 1; i < n; i++) {
-        for(int j = i; j < n; j++) {
-            if ((sums[j] - sums[i-1]) % 7 == 0) {
-                ans = max(ans, j - i + 1);
-            }
+    vector<int> last_index(7, -1);
+    for (int i = 1; i <= n; i++) {
+        if (last_index[sums[i]] == -1) {
+            last_index[sums[i]] = i;
+            continue;
         }
+        ans = max(ans, i - last_index[sums[i]]);
     }
-    cout << ans << endl;
+    cout << ans;
 }
