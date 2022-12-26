@@ -21,7 +21,7 @@ int main() {
     int ans = 0;
     for (int i = 1; i <= n; i++) {
         int before = max(max(paper[i], scissors[i]), hoof[i]);
-        int after = max(max(paper[n] - paper[i-1], scissors[n] - scissors[i-1]), hoof[n] - hoof[i-1]);
+        int after = max(max(paper[n] - paper[i], scissors[n] - scissors[i]), hoof[n] - hoof[i]);
         ans = max(ans, before+after);
     }
     cout << ans;
