@@ -1,43 +1,66 @@
-#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <string>
-#include <set>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    freopen("cownomics.in", "r", stdin);
-    freopen("cownomics.out", "w", stdout);
+    int n; cin >> n;
+    int m; cin >> m;
 
-    int n, m;
-    cin >> n >> m;
-
-    vector<string> spotty(n);
-    vector<string> plain(n);
+    vector<vector<int>> spotty(m, vector<int>(m));
+    vector<vector<int>> plain(m, vector<int>(m));
 
     for (int i = 0; i < n; i++) {
-        cin >> spotty[i];
-    }
-
-    for (int i = 0; i < n; i++) {
-        cin >> plain[i];
-    }
-
-    int total = 0;
-    for (int i = 0; i < m; i++) {
-        bool possible = true;
-        set<char> spottyLetters;
-        for (int j = 0; j < n; j++) {
-            spottyLetters.insert(spotty[j][i]);
-        }
-        for (int j = 0; j < n; j++) {
-            if (spottyLetters.find(plain[j][i]) != spottyLetters.end()) {
-                possible = false;
+        string t;
+        cin >> t;
+        for (int j = 0; j < m; j++) {
+            if (t[j] == 'A') {
+                spotty[i][j] = 0;
+            } else if (t[j] == 'T') {
+                spotty[i][j] = 1;
+            } else if (t[j] == 'C') {
+                spotty[i][j] = 2;
+            } else {
+                spotty[i][j] = 3;
             }
         }
-        if (possible) {
-            total++;
+    }
+
+    for (int i = 0; i < n; i++) {
+        string t;
+        cin >> t;
+        for (int j = 0; j < m; j++) {
+            if (t[j] == 'A') {
+                plain[i][j] = 0;
+            } else if (t[j] == 'T') {
+                plain[i][j] = 1;
+            } else if (t[j] == 'C') {
+                plain[i][j] = 2;
+            } else {
+                plain[i][j] = 3;
+            }
         }
     }
-    cout << total;
+    int ans = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = i+1; j < m; j++) {
+            for (int k = j+1; k < m; k++) {
+                vector<bool> ids(64);
+                for (int l = 0; l < n; l++) {
+                    int sum = 16 * spotty[l][i] + 4 * spotty[l][j] + spotty[l][k];
+                    ids[sum] = true;
+                }
+                bool found = false;
+                for (int l = 0; l < n; l++) {
+                    int sum = 16 * plain[l][i] + 4 * plain[l][j] + plain[l][k];
+                    if (ids[sum]) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    ans++;
+                }
+            }
+        }
+    }
+    cout << ans;
 }
