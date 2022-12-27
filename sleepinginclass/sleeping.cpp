@@ -30,7 +30,7 @@ int main() {
                 }
             }
             if (works) {
-                cout << n - x;
+                cout << n - x << endl;
                 break;
             }
         }
