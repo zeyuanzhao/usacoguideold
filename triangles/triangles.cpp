@@ -2,6 +2,8 @@
 using namespace std;
 
 int main() {
+    freopen("triangles.in", "r", stdin);
+    freopen("triangles.out", "w", stdout);
     int n; cin >> n;
     vector<pair<int, int>> posts(n);
     for (int i = 0; i < n; i++) {
