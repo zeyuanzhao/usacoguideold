@@ -20,7 +20,7 @@ int main() {
         int length, speed;
         cin >> length >> speed;
         for (int j = 0; j < length; j++) {
-            ans = max(ans, road[t] - speed);
+            ans = max(ans, speed - road[t]);
             t++;
         }
     }
