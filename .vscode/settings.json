@@ -3,7 +3,8 @@
         "iostream": "cpp",
         "vector": "cpp",
         "string": "cpp",
-        "cstdio": "cpp"
+        "cstdio": "cpp",
+        "typeinfo": "cpp"
     },
     "discord.enabled": true
 }
