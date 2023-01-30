@@ -2,6 +2,8 @@
 using namespace std;
 
 int main() {
+    freopen("blist.in", "r", stdin);
+    freopen("blist.out", "w", stdout);
     int n; cin >> n;
     vector<int> buckets(1000);
     for (int i = 0; i < n; i++) {
